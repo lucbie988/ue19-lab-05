@@ -94,10 +94,10 @@ jobs:
           TAGS: ${{ steps.meta.outputs.tags }}
        #test
       
-name: Aqua Security Trivy
-      uses: aquasecurity/trivy-action@0.33.1
-      with:
-        image-ref: ${{ steps.meta.outputs.tags }}
+      - name: Aqua Security Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+            image-ref: ${{ steps.meta.outputs.tags }}
           
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
